@@ -274,7 +274,7 @@ class GrainEffect extends Effect
     shader.grainsize.value = [grainsize];
     shader.lockAlpha.value = [lockAlpha];
     shader.uTime.value = [FlxG.random.float(0, 8)];
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed)
@@ -449,7 +449,7 @@ class VCRDistortionEffect extends Effect
     shader.vignetteMoving.value = [vignetteMoving];
     shader.glitchModifier.value = [glitchFactor];
     shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed:Float)
@@ -1054,7 +1054,7 @@ class GlitchEffect extends Effect
     this.waveSpeed = waveSpeed;
     this.waveFrequency = waveFrequency;
     this.waveAmplitude = waveAmplitude;
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed:Float):Void
@@ -1098,7 +1098,7 @@ class DistortBGEffect extends Effect
     this.waveFrequency = waveFrequency;
     this.waveAmplitude = waveAmplitude;
     shader.uTime.value = [0];
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed:Float):Void
@@ -1462,7 +1462,7 @@ class BlockedGlitchEffect
     set_resolution(res);
     set_colorMultiplier(colorMultiplier);
     set_hasColorTransform(colorTransform);
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed:Float):Void
@@ -1556,7 +1556,7 @@ class WiggleEffectLua extends Effect
     this.verticalStrength = verticalStrength;
     this.horizontalStrength = horizontalStrength;
     this.effectType = effectTypeFromString(typeOfEffect);
-    PlayState.instance.shaderUpdates.push(update);
+    states.PlayState.instance.shaderUpdates.push(update);
   }
 
   public function update(elapsed:Float):Void
