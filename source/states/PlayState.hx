@@ -114,7 +114,7 @@ class PlayState extends MusicBeatState
 	public var noteKillOffset:Float = 350;
 
 	public var playbackRate(default, set):Float = 1;
-
+    public var shaderUpdates:Array<Float->Void> = [];
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
@@ -1673,6 +1673,14 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+	    callOnLuas('onUpdate', [elapsed]);
+
+		theWiggleFlagEffect.update(elapsed);
+		theWiggleHorizontalWaveHeatEffect.update(elapsed);
+		theWiggleVerticalWaveHeatEffect.update(elapsed);
+		theWiggleDreamyEffect.update(elapsed);
+		theWiggleWavyEffect.update(elapsed);
+	
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			var idleAnim:Bool = (boyfriend.getAnimationName().startsWith('idle') || boyfriend.getAnimationName().startsWith('danceLeft') || boyfriend.getAnimationName().startsWith('danceRight'));
